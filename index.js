@@ -7,27 +7,26 @@ function longestWordInSentence(sentence) {
   while (frontIndex <= backIndex) {
     const frontWord = wordsArr[frontIndex].replace(/[^a-zA-Z ]/g, "");
     const backWord = wordsArr[backIndex].replace(/[^a-zA-Z ]/g, "");
+    let longestWordVwl = longestWord.match(/[aeiou]/gi);
 
-    if (frontWord.length > longestWord.length) {
-      longestWord = frontWord;
-    }
-    if (backWord.length > longestWord.length) {
-      longestWord = backWord;
-    }
-    if (
-      longestWord.length === frontWord.length ||
-      longestWord.length === backWord.length
-    ) {
-      let longestWordVwl = longestWord.match(/[aeiou]/gi);
+    if (frontWord.length >= longestWord.length) {
       if (longestWord.length === frontWord.length) {
         let frontWordVwl = frontWord.match(/[aeiou]/gi);
         longestWord =
           frontWordVwl.length > longestWordVwl.length ? frontWord : longestWord;
+      } else {
+        longestWord = frontWord;
       }
+    }
+
+    if (backWord.length >= longestWord.length) {
+      console.log(backWord, longestWord);
       if (longestWord.length === backWord.length) {
         let backWordVwl = backWord.match(/[aeiou]/gi);
         longestWord =
           backWordVwl.length > longestWordVwl.length ? backWord : longestWord;
+      } else {
+        longestWord = backWord;
       }
     }
     frontIndex += 1;
@@ -37,5 +36,5 @@ function longestWordInSentence(sentence) {
 }
 
 const sent =
-  "Smart people learn from everything and everyone, average people from their experience, stupid people already, have all the answers";
+  "You will be evaluated for both correctness, proper requirement understanding and presentations abilities";
 console.log("longestWordInSentence", longestWordInSentence(sent));
