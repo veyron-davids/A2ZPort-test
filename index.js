@@ -11,7 +11,7 @@ function longestWordInSentence(sentence) {
     if (frontWord.length > longestWord.length) {
       longestWord = frontWord;
     }
-    if (frontWord.length > longestWord.length) {
+    if (backWord.length > longestWord.length) {
       longestWord = backWord;
     }
     if (
