@@ -1,5 +1,7 @@
 function longestWordInSentence(sentence) {
   const wordsArr = sentence.split(" ");
+  if(!wordsArr.length) return "";
+  if(wordsArr.length === 1) return wordsArr[0];
   let frontIndex = 0;
   let backIndex = wordsArr.length - 1;
   let longestWord = "";
