@@ -22,7 +22,6 @@ function longestWordInSentence(sentence) {
     }
 
     if (backWord.length >= longestWord.length) {
-      console.log(backWord, longestWord);
       if (longestWord.length === backWord.length) {
         let backWordVwl = backWord.match(/[aeiou]/gi);
         longestWord =
